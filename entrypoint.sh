@@ -67,7 +67,7 @@ clone_monorepo() {
 }
 
 prepare_cookiecutter_extra_context() {
-  echo "$port_user_inputs" | jq 'with_entries(select(.key | startswith("cookiecutter_")) | .key |= sub("cookiecutter_"; ""))'
+  # echo "$port_user_inputs" | jq 'with_entries(select(.key | startswith("cookiecutter_")) | .key |= sub("cookiecutter_"; ""))'
 }
 
 cd_to_scaffold_directory() {
@@ -77,9 +77,9 @@ cd_to_scaffold_directory() {
 }
 
 apply_cookiecutter_template() {
-  extra_context=$(prepare_cookiecutter_extra_context)
+  # extra_context=$(prepare_cookiecutter_extra_context)
 
-  echo "🍪 Applying cookiecutter template $cookie_cutter_template with extra context $extra_context"
+  # echo "🍪 Applying cookiecutter template $cookie_cutter_template with extra context $extra_context"
   # Convert extra context from JSON to arguments
   args=()
   # for key in $(echo "$extra_context" | jq -r 'keys[]'); do
