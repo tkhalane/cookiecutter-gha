@@ -49,6 +49,15 @@ create_repository() {
           \"name\": \"$repository_name\", \"private\": false
         }" \
       https://api.github.com/user/repos
+      
+      git init
+      git config user.name "GitHub Actions Bot"
+      git config user.email "github-actions[bot]@users.noreply.github.com"
+      git add .
+      git commit -m "Initial commit after scaffolding"
+      git branch -M main
+      git remote add origin https://oauth2:$github_token@github.com/$org_name/$repository_name.git
+      git push -u origin main
 }
 
 clone_monorepo() {
@@ -155,7 +164,7 @@ main() {
   if [ -z "$monorepo_url" ] || [ -z "$scaffold_directory" ]; then
     send_log "Creating a new repository: $repository_name 🏃"
     create_repository
-    send_log "Created a new repository at https://github.com/$org_name/$repository_name 🚀"
+    send_log "Created a xxxxx new repository at https://github.com/$org_name/$repository_name 🚀"
   else
     send_log "Using monorepo scaffolding 🏃"
     clone_monorepo
