@@ -48,7 +48,7 @@ create_repository() {
        -d "{ \
           \"name\": \"$repository_name\", \"private\": false
         }" \
-      https://api.github.com/orgs/$org_name/repos
+      https://api.github.com/user/repos
 }
 
 clone_monorepo() {
