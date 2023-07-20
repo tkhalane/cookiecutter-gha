@@ -50,14 +50,6 @@ create_repository() {
         }" \
       https://api.github.com/user/repos
       
-      # git init
-      # git config user.name "GitHub Actions Bot"
-      # git config user.email "github-actions[bot]@users.noreply.github.com"
-      # git add .
-      # git commit -m "Initial commit after scaffolding"
-      # git branch -M main
-      # git remote add origin https://oauth2:$github_token@github.com/$org_name/$repository_name.git
-      # git push -u origin main
 }
 
 clone_monorepo() {
