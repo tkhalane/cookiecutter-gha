@@ -44,9 +44,9 @@ add_link() {
 }
 
 create_repository() {
-  curl -X POST-i -H "Authorization: token $github_token" \
+  curl -X POST -i -H "Authorization: token $github_token" \
        -d "{ \
-          \"name\": \"$repository_name\", \"private\": true
+          \"name\": \"$repository_name\", \"private\": false
         }" \
       https://api.github.com/orgs/$org_name/repos
 }
