@@ -162,9 +162,9 @@ main() {
   access_token=$(get_access_token)
 
   if [ -z "$monorepo_url" ] || [ -z "$scaffold_directory" ]; then
-    send_log "Creating a new repository: $repository_name 🏃"
+    send_log "Mmhhm Creating a new repository: $repository_name 🏃"
     create_repository
-    send_log "Created a xxxxx new repository at https://github.com/$org_name/$repository_name 🚀"
+    send_log "OK Created a xxxxx new repository at https://github.com/$org_name/$repository_name 🚀"
   else
     send_log "Using monorepo scaffolding 🏃"
     clone_monorepo
@@ -172,14 +172,14 @@ main() {
     send_log "Cloned monorepo and created branch $branch_name 🚀"
   fi
 
-  send_log "Starting templating with cookiecutter 🍪"
+  send_log "MMMMFF Starting templating with cookiecutter 🍪"
   apply_cookiecutter_template
-  send_log "Pushing the template into the repository ⬆️"
+  send_log "MMHH Pushing the template into the repository ⬆️"
   push_to_repository
 
   url="https://github.com/$org_name/$repository_name"
 
-  send_log "Reporting to Port the new entity created 🚢"
+  send_log "MHHH Reporting to Port the new entity created 🚢"
 
   report_to_port
 
