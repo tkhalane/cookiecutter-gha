@@ -82,9 +82,9 @@ apply_cookiecutter_template() {
   echo "🍪 Applying cookiecutter template $cookie_cutter_template with extra context $extra_context"
   # Convert extra context from JSON to arguments
   args=()
-  for key in $(echo "$extra_context" | jq -r 'keys[]'); do
-      args+=("$key=$(echo "$extra_context" | jq -r ".$key")")
-  done
+  # for key in $(echo "$extra_context" | jq -r 'keys[]'); do
+  #     args+=("$key=$(echo "$extra_context" | jq -r ".$key")")
+  # done
 
   # Call cookiecutter with extra context arguments
 
