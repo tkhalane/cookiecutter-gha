@@ -139,10 +139,18 @@ push_to_repository() {
 
     else
       cd "$(ls -td -- */ | head -n 1)"
-      mkdir helm
-      cd helm
-      curl -H "Cache-Control: no-cache, no-store" -o values.yaml https://raw.githubusercontent.com/tkhalane/mtnx-demo/main/helm/values.yaml
-      cd ..
+      helm create helm
+      # mkdir helm
+      # cd helm
+      # curl -H "Cache-Control: no-cache, no-store" -o values.yaml https://raw.githubusercontent.com/tkhalane/mtnx-demo/main/helm/values.yaml
+      # cd ..
+      yq --inplace ".name = \"${repository_name}\"" helm/Chart.yaml
+      yq --inplace ".image.repository = \"tkhalane/${repository_name}\"" helm/values.yaml
+      mkdir .github &&  cd .github
+      mkdir workflows && cd workflows
+      curl -H "Cache-Control: no-cache, no-store" -o deploy.yaml https://github.com/tkhalane/mtnx-demo/blob/main/.github/workflows/deploy.yml
+      # cd ..
+      cd ../..
       git init
       git config user.name "GitHub Actions Bot"
       git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -184,7 +192,7 @@ main() {
   apply_cookiecutter_template
   send_log "MMHH Pushing the template into the repository ⬆️"
   push_to_repository
-  create_helm_repository
+  # create_helm_repository
 
   url="https://github.com/$org_name/$repository_name"
 
