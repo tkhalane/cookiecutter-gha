@@ -131,7 +131,7 @@ push_to_repository() {
       yq --inplace ".image.repository = \"tkhalane/${repository_name}\"" helm/values.yaml
       mkdir .github &&  cd .github
       mkdir workflows && cd workflows
-      curl -H "Cache-Control: no-cache, no-store" -o deploy.yml https://github.com/tkhalane/mtnx-demo/blob/main/.github/workflows/deploy.yml
+      curl -H "Cache-Control: no-cache, no-store" -o deploy.yml https://raw.githubusercontent.com/tkhalane/mtnx-demo/main/.github/workflows/deploy.yml
       cd ../..
       git init
       git config user.name "GitHub Actions Bot"
