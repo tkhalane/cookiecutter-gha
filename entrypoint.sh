@@ -127,6 +127,10 @@ push_to_repository() {
 
     else
       cd "$(ls -td -- */ | head -n 1)"
+      mkdir helm
+      cd helm
+      curl -H "Cache-Control: no-cache, no-store" -o values.yaml https://raw.githubusercontent.com/tkhalane/mtnx-demo/main/helm/values.yaml
+      cd ..
       git init
       git config user.name "GitHub Actions Bot"
       git config user.email "github-actions[bot]@users.noreply.github.com"
