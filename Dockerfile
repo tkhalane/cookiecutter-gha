@@ -3,6 +3,7 @@ FROM python:3.11-alpine
 
 RUN apk update && \
     apk add --no-cache jq \
+    yq \
     curl \ 
     openssl \
     curl ca-certificates \ 
