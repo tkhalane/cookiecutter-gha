@@ -6,10 +6,9 @@ RUN apk update && \
     curl \ 
     git \
     openssh-client \
-    bash \
-    cookiecutter \
-    six
+    bash 
 
+RUN pip3 install cookiecutter && pip3 install six
     # Install Helm
 RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 RUN chmod 700 get_helm.sh
